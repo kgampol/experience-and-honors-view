@@ -1,12 +1,7 @@
+
 import { useState } from "react";
 import MobileMenu from "./MobileMenu";
 import { scrollToSection } from "../utils/scrollUtils";
-import {
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuItem,
-} from "./ui/dropdown-menu";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -23,8 +18,7 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-sm shadow-sm z-50">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <div className="text-xl font-bold text-portfolio-dark">Interactive Portfolio</div>
-
+        <div className="text-xl text-portfolio-dark font-bold">Interactive Portfolio</div>
         <nav className="hidden md:flex space-x-8 items-center">
           <div
             className="relative"
@@ -33,8 +27,9 @@ const Header = () => {
           >
             <a
               href="#work"
-              className="text-portfolio-dark hover:text-portfolio-primary transition-colors font-medium px-2 focus:outline-none"
+              className="text-portfolio-dark hover:text-portfolio-primary transition-colors font-normal px-2 focus:outline-none"
               onClick={handleExperienceClick}
+              style={{ fontWeight: 400 }} // Ensure not bold
             >
               Experience
             </a>
@@ -71,16 +66,6 @@ const Header = () => {
             )}
           </div>
           <a
-            href="#research"
-            className="text-portfolio-dark hover:text-portfolio-primary transition-colors"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection('research');
-            }}
-          >
-            Research Experience
-          </a>
-          <a
             href="#honors"
             className="text-portfolio-dark hover:text-portfolio-primary transition-colors"
             onClick={(e) => {
@@ -111,7 +96,6 @@ const Header = () => {
             Contact
           </a>
         </nav>
-
         <button
           className={`md:hidden flex flex-col justify-center items-center space-y-1.5 focus:outline-none ${mobileMenuOpen ? 'hamburger-active' : ''}`}
           onClick={toggleMenu}

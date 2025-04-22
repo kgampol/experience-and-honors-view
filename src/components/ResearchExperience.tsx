@@ -1,13 +1,17 @@
 
-// New section: Research Experience with logos
+// Research Experience section with random company logos for each entry
 import { FC } from "react";
 
+// Company logo placeholders (company/organization logo URLs)
 const LOGO_URLS = [
-  "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=facearea&w=64&h=64&q=80",
-  "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=facearea&w=64&h=64&q=80",
+  "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=facearea&w=64&h=64&q=80", // robot
+  "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=facearea&w=64&h=64&q=80", // macbook/code
+  "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=facearea&w=64&h=64&q=80", // macbook
+  "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=facearea&w=64&h=64&q=80", // laptop
+  "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=facearea&w=64&h=64&q=80", // monitor/java
+  "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=facearea&w=64&h=64&q=80", // people/screens
 ];
 
-// Example research entries
 const researchExperiences = [
   {
     id: 1,
@@ -24,6 +28,14 @@ const researchExperiences = [
     duration: "May 2020 - Dec 2022",
     description: "Conducted research in the field of AI, collaborated with academic and industry partners.",
     logo: LOGO_URLS[1],
+  },
+  {
+    id: 3,
+    title: "Junior Investigator",
+    institution: "Tech Innovation Hub",
+    duration: "Aug 2018 - Apr 2020",
+    description: "Participated in research projects focused on robotics and automation technologies.",
+    logo: LOGO_URLS[2],
   },
 ];
 
