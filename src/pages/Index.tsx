@@ -1,8 +1,10 @@
+
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import Education from "../components/Education";
 import WorkExperience from "../components/WorkExperience";
 import TeachingExperience from "../components/TeachingExperience";
+import ResearchExperience from "../components/ResearchExperience";
 import HonorsAwards from "../components/HonorsAwards";
 import PersonalProjects from "../components/PersonalProjects";
 import Contact from "../components/Contact";
@@ -49,6 +51,7 @@ const Index = () => {
       <Education />
       <WorkExperience />
       <TeachingExperience />
+      <ResearchExperience />
       <HonorsAwards />
       <PersonalProjects />
       <Contact />

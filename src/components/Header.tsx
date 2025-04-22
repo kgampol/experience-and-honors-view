@@ -1,8 +1,6 @@
 import { useState } from "react";
-import { Menu } from "lucide-react";
 import MobileMenu from "./MobileMenu";
 import { scrollToSection } from "../utils/scrollUtils";
-// Import DropdownMenu UI from shadcn
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -12,49 +10,78 @@ import {
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
+  const toggleMenu = () => setMobileMenuOpen(!mobileMenuOpen);
+
+  const handleExperienceClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    scrollToSection('work');
+    setDropdownOpen(false);
   };
 
   return (
     <header className="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-sm shadow-sm z-50">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="text-xl font-bold text-portfolio-dark">Interactive Portfolio</div>
-        
-        {/* Desktop Navigation */}
+
         <nav className="hidden md:flex space-x-8 items-center">
-          {/* Experience Dropdown */}
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <button className="text-portfolio-dark hover:text-portfolio-primary transition-colors font-medium px-2 focus:outline-none">
-                Experience
-              </button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="z-50 bg-white border">
-              <DropdownMenuItem
-                className="cursor-pointer"
-                onClick={() => scrollToSection('work')}
-              >
-                Work Experience
-              </DropdownMenuItem>
-              <DropdownMenuItem
-                className="cursor-pointer"
-                onClick={() => scrollToSection('teaching')}
-              >
-                Teaching Experience
-              </DropdownMenuItem>
-              <DropdownMenuItem
-                className="cursor-pointer"
-                onClick={() => scrollToSection('honors')}
-              >
-                Research
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-          {/* Other nav links */}
-          <a 
-            href="#honors" 
+          <div
+            className="relative"
+            onMouseEnter={() => setDropdownOpen(true)}
+            onMouseLeave={() => setDropdownOpen(false)}
+          >
+            <a
+              href="#work"
+              className="text-portfolio-dark hover:text-portfolio-primary transition-colors font-medium px-2 focus:outline-none"
+              onClick={handleExperienceClick}
+            >
+              Experience
+            </a>
+            {dropdownOpen && (
+              <div className="absolute left-0 mt-2 z-50 bg-white border rounded shadow-md min-w-[180px]">
+                <button
+                  className="block w-full text-left px-4 py-2 text-portfolio-dark hover:bg-portfolio-light"
+                  onClick={() => {
+                    scrollToSection('work');
+                    setDropdownOpen(false);
+                  }}
+                >
+                  Work Experience
+                </button>
+                <button
+                  className="block w-full text-left px-4 py-2 text-portfolio-dark hover:bg-portfolio-light"
+                  onClick={() => {
+                    scrollToSection('teaching');
+                    setDropdownOpen(false);
+                  }}
+                >
+                  Teaching Experience
+                </button>
+                <button
+                  className="block w-full text-left px-4 py-2 text-portfolio-dark hover:bg-portfolio-light"
+                  onClick={() => {
+                    scrollToSection('research');
+                    setDropdownOpen(false);
+                  }}
+                >
+                  Research Experience
+                </button>
+              </div>
+            )}
+          </div>
+          <a
+            href="#research"
+            className="text-portfolio-dark hover:text-portfolio-primary transition-colors"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('research');
+            }}
+          >
+            Research Experience
+          </a>
+          <a
+            href="#honors"
             className="text-portfolio-dark hover:text-portfolio-primary transition-colors"
             onClick={(e) => {
               e.preventDefault();
@@ -63,8 +90,8 @@ const Header = () => {
           >
             Honors & Awards
           </a>
-          <a 
-            href="#projects" 
+          <a
+            href="#projects"
             className="text-portfolio-dark hover:text-portfolio-primary transition-colors"
             onClick={(e) => {
               e.preventDefault();
@@ -73,8 +100,8 @@ const Header = () => {
           >
             Personal Projects
           </a>
-          <a 
-            href="#contact" 
+          <a
+            href="#contact"
             className="text-portfolio-dark hover:text-portfolio-primary transition-colors"
             onClick={(e) => {
               e.preventDefault();
@@ -84,9 +111,8 @@ const Header = () => {
             Contact
           </a>
         </nav>
-        
-        {/* Hamburger Menu */}
-        <button 
+
+        <button
           className={`md:hidden flex flex-col justify-center items-center space-y-1.5 focus:outline-none ${mobileMenuOpen ? 'hamburger-active' : ''}`}
           onClick={toggleMenu}
           aria-label="Toggle menu"
@@ -96,8 +122,6 @@ const Header = () => {
           <span className="hamburger-line"></span>
         </button>
       </div>
-      
-      {/* Mobile Menu */}
       <MobileMenu isOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
     </header>
   );
