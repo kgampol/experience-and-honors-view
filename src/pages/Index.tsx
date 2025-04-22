@@ -1,6 +1,6 @@
-
 import Header from "../components/Header";
 import Hero from "../components/Hero";
+import Education from "../components/Education";
 import WorkExperience from "../components/WorkExperience";
 import TeachingExperience from "../components/TeachingExperience";
 import HonorsAwards from "../components/HonorsAwards";
@@ -10,12 +10,10 @@ import Footer from "../components/Footer";
 import { useEffect } from "react";
 
 const Index = () => {
-  // Function to handle section animations on scroll
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          // Add a small delay for a staggered animation effect
           setTimeout(() => {
             entry.target.classList.add('section-fade-in');
           }, 100);
@@ -28,10 +26,8 @@ const Index = () => {
       observer.observe(section);
     });
 
-    // Also observe card elements for staggered animations
     const cards = document.querySelectorAll('.card-hover');
     cards.forEach((card, index) => {
-      // Add a data attribute for staggered animation
       card.setAttribute('data-delay', `${index * 100}`);
       observer.observe(card);
     });
@@ -50,6 +46,7 @@ const Index = () => {
     <div className="min-h-screen bg-white">
       <Header />
       <Hero />
+      <Education />
       <WorkExperience />
       <TeachingExperience />
       <HonorsAwards />
