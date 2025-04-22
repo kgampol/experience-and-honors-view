@@ -1,8 +1,14 @@
-
 import { useState } from "react";
 import { Menu } from "lucide-react";
 import MobileMenu from "./MobileMenu";
 import { scrollToSection } from "../utils/scrollUtils";
+// Import DropdownMenu UI from shadcn
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+} from "./ui/dropdown-menu";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -17,27 +23,36 @@ const Header = () => {
         <div className="text-xl font-bold text-portfolio-dark">Interactive Portfolio</div>
         
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-8">
-          <a 
-            href="#work" 
-            className="text-portfolio-dark hover:text-portfolio-primary transition-colors"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection('work');
-            }}
-          >
-            Work Experience
-          </a>
-          <a 
-            href="#teaching" 
-            className="text-portfolio-dark hover:text-portfolio-primary transition-colors"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection('teaching');
-            }}
-          >
-            Teaching Experience
-          </a>
+        <nav className="hidden md:flex space-x-8 items-center">
+          {/* Experience Dropdown */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button className="text-portfolio-dark hover:text-portfolio-primary transition-colors font-medium px-2 focus:outline-none">
+                Experience
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="z-50 bg-white border">
+              <DropdownMenuItem
+                className="cursor-pointer"
+                onClick={() => scrollToSection('work')}
+              >
+                Work Experience
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                className="cursor-pointer"
+                onClick={() => scrollToSection('teaching')}
+              >
+                Teaching Experience
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                className="cursor-pointer"
+                onClick={() => scrollToSection('honors')}
+              >
+                Research
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+          {/* Other nav links */}
           <a 
             href="#honors" 
             className="text-portfolio-dark hover:text-portfolio-primary transition-colors"
