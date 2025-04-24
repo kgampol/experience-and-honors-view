@@ -1,10 +1,10 @@
 
-// Research Experience section with random company logos for each entry
+// Research Experience section with PNG logos (no box, just shadow on PNG)
 import { FC } from "react";
 
 // Company logo placeholders (company/organization logo URLs)
 const LOGO_URLS = [
-  "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=facearea&w=64&h=64&q=80", // robot
+  "/Pics/UCM_Logos_Primary.png", // robot (fixed path, remove "public/")
   "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=facearea&w=64&h=64&q=80", // macbook/code
   "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=facearea&w=64&h=64&q=80", // macbook
   "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=facearea&w=64&h=64&q=80", // laptop
@@ -15,10 +15,10 @@ const LOGO_URLS = [
 const researchExperiences = [
   {
     id: 1,
-    title: "Lead Researcher",
-    institution: "Institute of Science",
-    duration: "Jan 2023 - Present",
-    description: "Led a team on a funded research initiative, resulting in multiple publications and conference talks.",
+    title: "Aeroelastic Wing Optimization Research",
+    institution: "UC Merced",
+    duration: "August 2024 - Present",
+    description: "Conducted structural and aeroelastic analysis of wing designs to minimize flutter and improve aerodynamic efficiency using MATLAB and HyperWorks.",
     logo: LOGO_URLS[0],
   },
   {
@@ -27,16 +27,16 @@ const researchExperiences = [
     institution: "Advanced Labs",
     duration: "May 2020 - Dec 2022",
     description: "Conducted research in the field of AI, collaborated with academic and industry partners.",
-    logo: LOGO_URLS[1],
+    logo: LOGO_URLS[0],
   },
-  {
-    id: 3,
-    title: "Junior Investigator",
-    institution: "Tech Innovation Hub",
-    duration: "Aug 2018 - Apr 2020",
-    description: "Participated in research projects focused on robotics and automation technologies.",
-    logo: LOGO_URLS[2],
-  },
+  // {
+  //   id: 3,
+  //   title: "Junior Investigator",
+  //   institution: "Tech Innovation Hub",
+  //   duration: "Aug 2018 - Apr 2020",
+  //   description: "Participated in research projects focused on robotics and automation technologies.",
+  //   logo: LOGO_URLS[2],
+  // },
 ];
 
 const ResearchExperience: FC = () => (
@@ -47,13 +47,24 @@ const ResearchExperience: FC = () => (
         {researchExperiences.map((item) => (
           <div
             key={item.id}
-            className="bg-white p-6 rounded-lg shadow-md flex items-center card-hover"
+            className="bg-white p-6 rounded-lg flex items-center card-hover"
           >
             {item.logo && (
               <img
                 src={item.logo}
                 alt={`${item.institution} logo`}
-                className="w-14 h-14 object-cover rounded-full border mr-6 bg-gray-100"
+                className="mr-6"
+                style={{
+                  width: "64px",
+                  height: "64px",
+                  objectFit: "contain",
+                  background: "none",
+                  border: "none",
+                  borderRadius: 0,
+                  padding: 0,
+                  boxSizing: "border-box",
+                  boxShadow: "none",
+                }}
               />
             )}
             <div className="flex-1">

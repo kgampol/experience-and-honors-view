@@ -1,4 +1,3 @@
-
 import { FC } from 'react';
 import { scrollToSection } from '../utils/scrollUtils';
 
@@ -9,24 +8,22 @@ const Hero: FC = () => {
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-8 md:mb-0 section-fade-in text-center md:text-left">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-portfolio-dark">
-              Hi, I'm <span className="text-portfolio-primary">Your Name</span>
+              Whatsgood, I'm <span className="inline-block text-portfolio-highlight animate-bounce-custom">Daniel Lewis</span>
             </h1>
             <p className="text-xl text-gray-600 mb-6">
-              Professional title or brief introduction
+              Incoming Lockheed Martin Electromechanical Engineer
             </p>
             <p className="text-gray-700 mb-8 max-w-lg mx-auto md:mx-0">
-              This is where you can put a brief description about yourself, your skills, and what you're passionate about. Make it engaging and personable.
+              Did you know I am making 100k a year?
             </p>
             <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 justify-center md:justify-start">
-              <a 
-                href="#work" 
+              <a
+                href="/DLewisCV.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-6 py-2 bg-portfolio-primary text-white rounded-md hover:bg-portfolio-secondary transition-colors"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection('work');
-                }}
               >
-                View My Work
+                View CV
               </a>
               <a 
                 href="#contact" 
@@ -44,7 +41,7 @@ const Hero: FC = () => {
             <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-portfolio-light shadow-xl">
               {/* Replace with your photo */}
               <img 
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158" 
+                src="/Pics/1716181236423.jpg" 
                 alt="Your Name" 
                 className="w-full h-full object-cover"
               />

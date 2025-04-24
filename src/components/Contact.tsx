@@ -1,82 +1,74 @@
-
 import { FC } from 'react';
-import { Mail, Phone, MapPin, Linkedin, Github, Twitter } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Github } from 'lucide-react';
 
 const Contact: FC = () => {
   return (
-    <section id="contact" className="py-16 bg-portfolio-light">
+    <section id="contact" className="py-20 bg-portfolio-light">
       <div className="container mx-auto px-4">
-        <h2 className="section-title mb-12">Get In Touch</h2>
+        <h2 className="text-3xl font-bold text-center text-portfolio-dark mb-16">Get In Touch</h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div>
-            <h3 className="text-xl font-bold text-portfolio-dark mb-6">Contact Information</h3>
-            <div className="space-y-4">
-              <div className="flex items-center">
-                <Mail className="w-5 h-5 text-portfolio-primary mr-3" />
-                <span className="text-gray-700">your.email@example.com</span>
+        <div className="flex justify-center">
+          <div className="w-full max-w-xl bg-white rounded-xl shadow-lg p-8">
+            <div className="space-y-8">
+              {/* Contact Information */}
+              <div>
+                <h3 className="text-2xl font-bold text-portfolio-dark border-b border-gray-200 pb-3 mb-5">
+                  Contact Information
+                </h3>
+                <div className="space-y-5">
+                  <div className="flex items-center group">
+                    <div className="bg-portfolio-primary/10 p-3 rounded-full mr-4">
+                      <Mail className="w-6 h-6 text-portfolio-primary" />
+                    </div>
+                    <a
+                      href="mailto:dlewis16@ucmerced.edu"
+                      className="text-gray-700 text-lg hover:text-portfolio-primary transition-colors underline focus:outline-none focus:ring-2 focus:ring-portfolio-primary rounded"
+                    >
+                      dlewis16@ucmerced.edu
+                    </a>
+                  </div>
+                  <div className="flex items-center group">
+                    <div className="bg-portfolio-primary/10 p-3 rounded-full mr-4">
+                      <Phone className="w-6 h-6 text-portfolio-primary" />
+                    </div>
+                    <span className="text-gray-700 text-lg">(714) 724-3057 </span>
+                  </div>
+                  <div className="flex items-center group">
+                    <div className="bg-portfolio-primary/10 p-3 rounded-full mr-4">
+                      <MapPin className="w-6 h-6 text-portfolio-primary" />
+                    </div>
+                    <span className="text-gray-700 text-lg">Vila Park, CA, United States</span>
+                  </div>
+                </div>
               </div>
-              <div className="flex items-center">
-                <Phone className="w-5 h-5 text-portfolio-primary mr-3" />
-                <span className="text-gray-700">(123) 456-7890</span>
-              </div>
-              <div className="flex items-center">
-                <MapPin className="w-5 h-5 text-portfolio-primary mr-3" />
-                <span className="text-gray-700">Your City, State, Country</span>
+              
+              {/* Social Links */}
+              <div>
+                <h3 className="text-2xl font-bold text-portfolio-dark border-b border-gray-200 pb-3 mb-5">
+                  Connect With Me
+                </h3>
+                <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
+                  <a
+                    href="https://www.linkedin.com/in/danielewis/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center px-6 py-4 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md hover:bg-gray-50 transition-all group flex-1"
+                  >
+                    <Linkedin className="w-6 h-6 text-portfolio-primary mr-3 group-hover:scale-110 transition-transform" />
+                    <span className="text-gray-700 font-medium group-hover:text-portfolio-primary transition-colors">LinkedIn</span>
+                  </a>
+                  <a
+                    href="https://github.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center px-6 py-4 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md hover:bg-gray-50 transition-all group flex-1"
+                  >
+                    <Github className="w-6 h-6 text-portfolio-primary mr-3 group-hover:scale-110 transition-transform" />
+                    <span className="text-gray-700 font-medium group-hover:text-portfolio-primary transition-colors">GitHub</span>
+                  </a>
+                </div>
               </div>
             </div>
-            
-            <h3 className="text-xl font-bold text-portfolio-dark mt-8 mb-6">Connect With Me</h3>
-            <div className="flex space-x-4">
-              <a href="#" className="bg-white p-3 rounded-full shadow-md hover:shadow-lg transition-all">
-                <Linkedin className="w-5 h-5 text-portfolio-primary" />
-              </a>
-              <a href="#" className="bg-white p-3 rounded-full shadow-md hover:shadow-lg transition-all">
-                <Github className="w-5 h-5 text-portfolio-primary" />
-              </a>
-              <a href="#" className="bg-white p-3 rounded-full shadow-md hover:shadow-lg transition-all">
-                <Twitter className="w-5 h-5 text-portfolio-primary" />
-              </a>
-            </div>
-          </div>
-          
-          <div>
-            <h3 className="text-xl font-bold text-portfolio-dark mb-6">Send Me a Message</h3>
-            <form className="space-y-4">
-              <div>
-                <label className="block text-gray-700 mb-2" htmlFor="name">Name</label>
-                <input 
-                  type="text" 
-                  id="name" 
-                  className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-portfolio-primary"
-                  placeholder="Your Name"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-700 mb-2" htmlFor="email">Email</label>
-                <input 
-                  type="email" 
-                  id="email" 
-                  className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-portfolio-primary"
-                  placeholder="Your Email"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-700 mb-2" htmlFor="message">Message</label>
-                <textarea 
-                  id="message" 
-                  rows={4} 
-                  className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-portfolio-primary"
-                  placeholder="Your Message"
-                ></textarea>
-              </div>
-              <button 
-                type="submit" 
-                className="px-6 py-3 bg-portfolio-primary text-white rounded-md hover:bg-portfolio-secondary transition-colors"
-              >
-                Send Message
-              </button>
-            </form>
           </div>
         </div>
       </div>

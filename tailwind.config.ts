@@ -52,15 +52,16 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-        portfolio: {
-          primary: '#3B82F6', // Blue
-          secondary: '#1E40AF', // Darker blue
-          accent: '#F59E0B', // Amber
-          light: '#F3F4F6', // Light gray
-          dark: '#1F2937', // Dark gray
-          text: '#111827', // Near black
-          background: '#FFFFFF', // White
-        },
+				portfolio: {
+					primary: '#1B263B',      // Deep Space Blue
+					secondary: '#415A77',    // Sky Blue
+					accent: '#E0E1DD',       // Jet Silver
+					highlight: '#FF6F3C',    // Rocket Red (optional)
+					light: '#F8F9FA',        // Cloud White
+					dark: '#22223B',         // Charcoal
+					text: '#22223B',         // Charcoal
+					background: '#F8F9FA',   // Cloud White
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -93,11 +94,16 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'bounce': {
+					'0%, 100%': { transform: 'translateY(-25%)', animationTimingFunction: 'cubic-bezier(0.8,0,1,1)' },
+					'50%': { transform: 'translateY(0)', animationTimingFunction: 'cubic-bezier(0,0,0.2,1)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'bounce': 'bounce 1s infinite'
 			}
 		}
 	},
